@@ -1,0 +1,61 @@
+<div class="container">
+    <h2>Angular Form Builder</h2>
+  
+    <form (ngSubmit)="addElement()">
+      <div class="input-group">
+        <label for="inputName">Name:</label>
+        <input class="frm" type="text" id="inputName" [(ngModel)]="inputName" name="inputName" required />
+      </div>
+      <div class="input-group">
+        <label for="inputType">Type:</label>
+        <select id="inputType" [(ngModel)]="inputType" name="inputType" required>
+          <option value="text">Text</option>
+          <option value="radio">Radio</option>
+          <option value="email">Email</option>
+          <option value="dropdown">Dropdown</option>
+          <option value="checkbox">Checkbox</option>
+          <option value="file">File</option>
+          <option value="number">Number</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label for="required">Required:</label>
+        <label>
+          <input type="radio" name="required" [(ngModel)]="required" [value]="'true'" /> True
+        </label>
+        <label>
+          <input type="radio" name="required" [(ngModel)]="required" [value]="'false'" /> False
+        </label>
+      </div>
+      <div class="input-group">
+        <label for="inputLabel">Label:</label>
+        <input class="frm" type="text" id="inputLabel" [(ngModel)]="inputLabel" name="inputLabel" required />
+      </div>
+      <button type="submit" [disabled]="!inputName || !inputLabel">Add Element</button>
+    </form>
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Required</th>
+          <th>Label</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of formElements; let i = index">
+          <td>{{ element.name }}</td>
+          <td>{{ element.type }}</td>
+          <td>{{ element.required ? 'Yes' : 'No' }}</td>
+          <td>{{ element.label }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="createForm()">Generate Form HTML</button>
+  
+    <div id="generatedForm" *ngIf="generatedFormHtml">
+      <h3>Generated Form HTML</h3>
+      <pre>{{ generatedFormHtml }}</pre>
+    </div>
+  </div>
+  

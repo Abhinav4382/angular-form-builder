@@ -1,0 +1,167 @@
+/* General Container */
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Input and Form Elements */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .input-group label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .input-group input,
+  .input-group select,
+  .input-group button {
+    padding: 12px 15px;
+    font-size: 1rem;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .input-group input:focus,
+  .input-group select:focus,
+  .input-group button:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  }
+  
+  .input-group input[type="radio"],
+  .input-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+  }
+  
+  /* Submit Button */
+  button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Table Styling */
+  .tbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+  
+  .tbl th, .tbl td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+  }
+  
+  .tbl th {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  .tbl tbody tr:nth-child(odd) {
+    background-color: #fafafa;
+  }
+  
+  .tbl tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  /* Generated Form Section */
+  #generatedForm {
+    margin-top: 40px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  #generatedForm h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  #generatedForm pre {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* Form Layout & Responsiveness */
+  @media (max-width: 768px) {
+    .input-group {
+      margin-bottom: 15px;
+    }
+  
+    .input-group input,
+    .input-group select,
+    .input-group button {
+      font-size: 0.9rem;
+    }
+  
+    .tbl th, .tbl td {
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .input-group input,
+    .input-group select,
+    .input-group button {
+      font-size: 0.9rem;
+    }
+  
+    .tbl th, .tbl td {
+      padding: 8px;
+    }
+  }

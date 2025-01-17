@@ -10,36 +10,41 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./form-builder.component.css'],
 })
 export class FormBuilderComponent {
-  inputName: string = '';
-  inputType: string = 'text';
-  required: string = 'false';
-  inputLabel: string = '';
-  formElements: any[] = [];
-  generatedFormHtml: string = '';
+  elementName: string = '';   
+  elementType: string = 'text';   
+  isRequired: string = 'false';   
+  elementLabel: string = '';   
+  formStructure: any[] = [];   
+  generatedFormCode: string = '';   
 
-  addElement() {
-    if (!this.inputName || !this.inputLabel) {
+  addFormElement() {
+    if (!this.elementName || !this.elementLabel) {
       alert('Please fill in all fields');
       return;
     }
 
-    const newElement = {
-      name: this.inputName,
-      type: this.inputType,
-      required: this.required === 'true',
-      label: this.inputLabel,
+    const newFormElement = {
+      name: this.elementName,
+      type: this.elementType,
+      required: this.isRequired === 'true',
+      label: this.elementLabel,
     };
 
-    this.formElements.push(newElement);
-    this.inputName = '';
-    this.inputType = 'text';
-    this.required = 'false';
-    this.inputLabel = '';
+    this.formStructure.push(newFormElement);
+    this.resetFormInputs(); 
   }
-  createForm() {
-    let formHTML = '<form id="formHTML">\n';
 
-    this.formElements.forEach(element => {
+  resetFormInputs() {
+    this.elementName = '';
+    this.elementType = 'text';
+    this.isRequired = 'false';
+    this.elementLabel = '';
+  }
+
+  generateFormHTML() {
+    let formHTML = '<form id="generatedForm">\n';
+
+    this.formStructure.forEach(element => {
       formHTML += `  <label for="${element.name}">${element.label}</label>\n`;
 
       if (element.type === 'dropdown') {
@@ -53,6 +58,6 @@ export class FormBuilderComponent {
 
     formHTML += '</form>';
 
-    this.generatedFormHtml = formHTML;
+    this.generatedFormCode = formHTML;
   }
 }
